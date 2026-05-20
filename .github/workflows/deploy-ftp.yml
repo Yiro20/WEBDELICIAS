@@ -8,7 +8,6 @@ on:
 
 jobs:
   ftp-deploy:
-    name: Upload files to hosting
     runs-on: ubuntu-latest
 
     steps:
@@ -28,8 +27,6 @@ jobs:
           local-dir: ./
           server-dir: /public_html/
 
-          dangerous-clean-slate: false
-
           exclude: |
             **/.git*
             **/.git*/**
@@ -37,9 +34,3 @@ jobs:
             **/vendor/**
             **/.env
             **/.env.*
-            **/.next/cache/**
-            **/storage/framework/**
-            **/storage/logs/**
-            **/.vscode/**
-            **/.idea/**
-            **/README.md
