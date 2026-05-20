@@ -21,7 +21,7 @@ jobs:
 
       - name: Check FTP password secret
         env:
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PASSWORD: Nidatello12345
         run: |
           if [ -z "$FTP_PASSWORD" ]; then
             echo "::error title=Falta FTP_PASSWORD::Crea el secret FTP_PASSWORD en Settings > Secrets and variables > Actions."
