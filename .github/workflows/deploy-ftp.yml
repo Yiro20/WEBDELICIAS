@@ -8,6 +8,7 @@ on:
 
 jobs:
   ftp-deploy:
+    name: Upload files to hosting
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +18,7 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: saborcentral.com
+          server: 216.246.112.85
           username: deploypanaderia@saborcentral.com
           password: ${{ secrets.FTP_PASSWORD }}
 
@@ -27,6 +28,8 @@ jobs:
           local-dir: ./
           server-dir: /public_html/
 
+          dangerous-clean-slate: false
+
           exclude: |
             **/.git*
             **/.git*/**
@@ -34,3 +37,7 @@ jobs:
             **/vendor/**
             **/.env
             **/.env.*
+            **/.next/cache/**
+            **/.vscode/**
+            **/.idea/**
+            **/README.md
